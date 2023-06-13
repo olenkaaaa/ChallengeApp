@@ -1,48 +1,70 @@
-﻿// Napisz w Program.cs kod, w którym:
-// - zadeklarujesz zmienną z imieniem
-// - zadeklarujesz zmienną z płcią (dobierz zmienną)
-// - zadeklarujesz zmienną z wiekiem 
-// - zweryfikujesz dane i wyświetlisz jeden z komunikatów 
-// (1): "Kobieta poniżej 30 lat"
-// (2): "Ewa, lat 33"
-// (3): "Niepełnoletni Mężczyzna"
-// ------------------
-// (możesz dodać swoje)
+﻿int number = 7867;
+string numberAsString = number.ToString();
+char[] signs = numberAsString.ToArray();
 
-var name = "Ewa";
-var sex = "Kobieta";
-var age = 33;
+int counter0 = 0;
+int counter1 = 0;
+int counter2 = 0;
+int counter3 = 0;
+int counter4 = 0;
+int counter5 = 0;
+int counter6 = 0;
+int counter7 = 0;
+int counter8 = 0;
+int counter9 = 0;
 
-if(sex == "Kobieta")
+foreach (char sign in signs)
 {
-    if(age < 30)
+    if (sign == '0')
     {
-        Console.WriteLine("Kobieta poniżej 30 lat");
+        counter0++;
     }
-    else if(age == 30)
+    else if (sign == '1')
     {
-        Console.WriteLine("Kobieta w wieku 30 lat");
+        counter1++;
     }
-    else if(age == 33)
+    else if (sign == '2')
     {
-        if(name == "Ewa")
-        {
-            Console.WriteLine("Ewa, lat 33");
-        }
+        counter2++;
+    }
+    else if (sign == '3')
+    {
+        counter3++;
+    }
+    else if (sign == '4')
+    {
+        counter4++;
+    }
+    else if (sign == '5')
+    {
+        counter5++;
+    }
+    else if (sign == '6')
+    {
+        counter6++;
+    }
+    else if (sign == '7')
+    {
+        counter7++;
+    }
+    else if (sign == '8')
+    {
+        counter8++;
+    }
+    else if (sign == '9')
+    {
+        counter9++;
     }
 }
-else if(sex == "Mężczyzna")
-{
-    if(age < 18)
-    {
-        Console.WriteLine("Niepełnoletni Mężczyzna");
-    }
-    else if(name == "Jan" && age == 15)
-    {
-        Console.WriteLine("Jan, lat 15");
-    }
-    else
-    {
-        Console.WriteLine("Pełnoletni Mężczyzna");
-    }
-}
+
+Console.WriteLine("Wyniki dla liczby " + number);
+Console.WriteLine("0 => " + counter0);
+Console.WriteLine("1 => " + counter1);
+Console.WriteLine("2 => " + counter2);
+Console.WriteLine("3 => " + counter3);
+Console.WriteLine("4 => " + counter4);
+Console.WriteLine("5 => " + counter5);
+Console.WriteLine("6 => " + counter6);
+Console.WriteLine("7 => " + counter7);
+Console.WriteLine("8 => " + counter8);
+Console.WriteLine("9 => " + counter9);
