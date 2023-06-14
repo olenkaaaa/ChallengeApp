@@ -1,70 +1,51 @@
-﻿int number = 7867;
-string numberAsString = number.ToString();
-char[] signs = numberAsString.ToArray();
+﻿Console.WriteLine("Podaj trzy liczby całkowite");
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
+Console.Write("Pierwsza liczba -> ");
+string num1 = Console.ReadLine();
+var number1 = int.Parse(num1);
+Console.Write("Druga liczba -> ");
+string num2 = Console.ReadLine();
+var number2 = int.Parse(num2);
+Console.Write("Trzecia liczba -> ");
+string num3 = Console.ReadLine();
+var number3 = int.Parse(num3);
 
-foreach (char sign in signs)
+if (number1 > number2 && number1 > number3)
 {
-    if (sign == '0')
+    Console.WriteLine("Liczba " + number1 + " jest największa");
+    
+    if (number2 < number3 )
     {
-        counter0++;
+        Console.WriteLine("Liczba " + number2 + " jest najmniejsza");
     }
-    else if (sign == '1')
+    else if (number3 < number2)
     {
-        counter1++;
-    }
-    else if (sign == '2')
-    {
-        counter2++;
-    }
-    else if (sign == '3')
-    {
-        counter3++;
-    }
-    else if (sign == '4')
-    {
-        counter4++;
-    }
-    else if (sign == '5')
-    {
-        counter5++;
-    }
-    else if (sign == '6')
-    {
-        counter6++;
-    }
-    else if (sign == '7')
-    {
-        counter7++;
-    }
-    else if (sign == '8')
-    {
-        counter8++;
-    }
-    else if (sign == '9')
-    {
-        counter9++;
+        Console.WriteLine("Liczba " + number3 + " jest najmniejsza");
     }
 }
+else if (number2 > number1 && number2 > number3)
+{
+    Console.WriteLine("Liczba " + number2 + " jest największa");
 
-Console.WriteLine("Wyniki dla liczby " + number);
-Console.WriteLine("0 => " + counter0);
-Console.WriteLine("1 => " + counter1);
-Console.WriteLine("2 => " + counter2);
-Console.WriteLine("3 => " + counter3);
-Console.WriteLine("4 => " + counter4);
-Console.WriteLine("5 => " + counter5);
-Console.WriteLine("6 => " + counter6);
-Console.WriteLine("7 => " + counter7);
-Console.WriteLine("8 => " + counter8);
-Console.WriteLine("9 => " + counter9);
+    if (number1 < number3)
+    {
+        Console.WriteLine("Liczba " + number1 + " jest najmniejsza");
+    }
+    else if (number3 < number1)
+    {
+        Console.WriteLine("Liczba " + number3 + " jest najmniejsza");
+    }
+}
+else if (number3 > number1 && number3 > number2)
+{
+    Console.WriteLine("Liczba " + number3 + " jest największa");
+
+    if (number2 < number1)
+    {
+        Console.WriteLine("Liczba " + number2 + " jest najmniejsza");
+    }
+    else if (number1 < number2)
+    {
+        Console.WriteLine("Liczba " + number1 + " jest najmniejsza");
+    }
+}
