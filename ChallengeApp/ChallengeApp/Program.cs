@@ -1,51 +1,24 @@
-﻿Console.WriteLine("Podaj trzy liczby całkowite");
+﻿Console.Write("Podaj swoją wagę -> ");
+var weightString = Console.ReadLine();
+var weight = int.Parse(weightString);
+Console.Write("Podaj swój wzrost -> ");
+var heightStringCm = Console.ReadLine();
+var heightCm = int.Parse(heightStringCm);
+var heightM = heightCm / 100.0;
 
-Console.Write("Pierwsza liczba -> ");
-string num1 = Console.ReadLine();
-var number1 = int.Parse(num1);
-Console.Write("Druga liczba -> ");
-string num2 = Console.ReadLine();
-var number2 = int.Parse(num2);
-Console.Write("Trzecia liczba -> ");
-string num3 = Console.ReadLine();
-var number3 = int.Parse(num3);
+var BMI = weight / Math.Pow(heightM, 2);
 
-if (number1 > number2 && number1 > number3)
+Console.WriteLine("Twoje BMI wynosi " + BMI);
+
+if (18.5 <= BMI && BMI <= 24.9)
 {
-    Console.WriteLine("Liczba " + number1 + " jest największa");
-    
-    if (number2 < number3 )
-    {
-        Console.WriteLine("Liczba " + number2 + " jest najmniejsza");
-    }
-    else if (number3 < number2)
-    {
-        Console.WriteLine("Liczba " + number3 + " jest najmniejsza");
-    }
+    Console.WriteLine("Twoja waga jest prawidłowa");
 }
-else if (number2 > number1 && number2 > number3)
+else if (BMI < 18.5)
 {
-    Console.WriteLine("Liczba " + number2 + " jest największa");
-
-    if (number1 < number3)
-    {
-        Console.WriteLine("Liczba " + number1 + " jest najmniejsza");
-    }
-    else if (number3 < number1)
-    {
-        Console.WriteLine("Liczba " + number3 + " jest najmniejsza");
-    }
+    Console.WriteLine("Masz niedowagę");
 }
-else if (number3 > number1 && number3 > number2)
+else
 {
-    Console.WriteLine("Liczba " + number3 + " jest największa");
-
-    if (number2 < number1)
-    {
-        Console.WriteLine("Liczba " + number2 + " jest najmniejsza");
-    }
-    else if (number1 < number2)
-    {
-        Console.WriteLine("Liczba " + number1 + " jest najmniejsza");
-    }
+    Console.WriteLine("Masz nadwagę");
 }
