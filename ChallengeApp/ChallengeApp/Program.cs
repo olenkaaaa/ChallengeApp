@@ -30,35 +30,22 @@ employee3.AddPoints(8);
 employee3.AddPoints(1);
 employee3.AddPoints(4);
 
-var employee1Points = employee1.Points;
-var employee2Points = employee2.Points;
-var employee3Points = employee3.Points;
+List<Employee> employees = new List<Employee>()
+{
+    employee1, employee2, employee3
+};
 
-if (employee1Points > employee2Points && employee1Points > employee3Points)
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
+
+foreach (var employee in employees)
 {
-    Console.WriteLine("Najwyższy wynik ma " + employee1.Name + " " + employee1.Surname + " " + employee1.Age + " lat" + ": " + employee1.Points);
+    if (employee.Points > maxResult)
+    {
+        employeeWithMaxResult = employee;
+        maxResult = employee.Points;
+    }
 }
-else if (employee2Points > employee1Points && employee2Points > employee3Points)
-{
-    Console.WriteLine("Najwyższy wynik ma " + employee2.Name + " " + employee2.Surname + " " + employee2.Age + " lat" + ": " + employee2.Points);
-}
-else if (employee3Points > employee1Points && employee3Points > employee2Points)
-{
-    Console.WriteLine("Najwyższy wynik ma " + employee3.Name + " " + employee3.Surname + " " + employee3.Age + " lat" + ": " + employee3.Points);
-}
-else if (employee1Points == employee2Points && employee1Points == employee3Points)
-{
-    Console.WriteLine("Wszyscy pracownicy (" + employee1.Name + " " + employee1.Surname + " " + employee1.Age + " lat" + ", " + employee2.Name + " " + employee2.Surname + " " + employee2.Age + " lat" + " i " + employee3.Name + " " + employee3.Surname + " " + employee3.Age + " lat" + ") uzyskali ten sam wynik: " + employee1.Points);
-}
-else if (employee1Points == employee2Points)
-{
-    Console.WriteLine("Najwyższy wynik uzyskali jednocześnie " + employee1.Name + " " + employee1.Surname + " " + employee1.Age + " lat" + " i " + employee2.Name + " " + employee2.Surname + " " + employee2.Age + " lat" + ": " + employee1.Points);
-}
-else if (employee1Points == employee3Points)
-{
-    Console.WriteLine("Najwyższy wynik uzyskali jednocześnie " + employee1.Name + " " + employee1.Surname + " " + employee1.Age + " lat" + " i " + employee3.Name + " " + employee3.Surname + " " + employee3.Age + " lat" + ": " + employee1.Points);
-}
-else if (employee2Points == employee3Points)
-{
-    Console.WriteLine("Najwyższy wynik uzyskali jednocześnie " + employee2.Name + " " + employee2.Surname + " " + employee2.Age + " lat" + " i " + employee3.Name + " " + employee3.Surname + " " + employee3.Age + " lat" + ": " + employee2.Points);
-}
+
+Console.WriteLine("Najwyższy wynik uzyskał " + employeeWithMaxResult.Name + " " + employeeWithMaxResult.Surname + " " + employeeWithMaxResult.Age + " lat: " + employeeWithMaxResult.Points);
+
