@@ -1,180 +1,89 @@
-﻿Console.WriteLine("Wypisz 20 liter (z alfabetu angielskiego), które chcesz dodać do tablicy.");
-Console.Write("Zacznij tutaj (litery rozdzielaj spacją) -> ");
-var userInput = Console.ReadLine();
+﻿// Twój program powinien generować silne, losowe hasła
+// na podstawie określonych przez użytkownika kryteriów,
+// takich jak długość hasła i rodzaje znaków, które powinny być użyte
+// (na przykład, małe litery, wielkie litery, cyfry, symbole).
 
-if (userInput.Length > 39)
+Console.WriteLine("Jestem generatorem haseł. Podaj mi kryteria, które ma spełniać Twoje hasło.");
+Console.Write("Długość hasła (wpisz cyfrę, określającą liczbę znaków) -> ");
+var passwordLengthAsString = Console.ReadLine();
+var passwordLength = int.Parse(passwordLengthAsString);
+Console.Write("Czy ma zawierać liczby? (Wpisz 'tak' lub 'nie') -> ");
+var hasNumbers = Console.ReadLine();
+Console.Write("Czy ma zawierać znaki specjalne? (Wpisz 'tak' lub 'nie') -> ");
+var hasSpecialChars = Console.ReadLine();
+Console.Write("Czy ma zaczynać się z wielkiej litery? (Wpisz 'tak' lub 'nie) -> ");
+var startsWithCapitalLetter = Console.ReadLine();
+
+var numbersLettersSpecialChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&*?"; // hasNumbers, hasSpecialChars
+var onlyCapitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+var numbersLetters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; // has Numbers, nie ma hasSpecialChars
+
+List<string> passwordSigns = new List<string>();
+
+//var onlySmallLetters = "abcdefghijklmnopqrstuvwxyz";
+//var onlyCapitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//var allLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbersAndLetters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+Random random = new Random();
+
+for (var i = 0; i < passwordLength; i++)
 {
-    userInput = userInput.Substring(0, 39);
-    Console.WriteLine("Wpisałeś za dużo liter, zostaną wzięte pod uwagę tylko te litery: " + userInput);
-}
-else if (userInput.Length < 39)
-{
-    Console.Write("Wpisałeś za mało liter, wpisz jeszcze raz -> ");
-    userInput = Console.ReadLine();
-}
+    if (hasNumbers == "tak")
+    {
+        if (hasSpecialChars == "tak")
+        {
+            if (startsWithCapitalLetter == "tak")
+            {
+                // uzupełnij
+            }
+            else if (startsWithCapitalLetter == "nie")
+            {
+                var index = random.Next(0, numbersLettersSpecialChars.Length);
+                var firstRandomSign = numbersLettersSpecialChars[index];
+                var firstRandomSignAsString = firstRandomSign.ToString();
+                passwordSigns.Add(firstRandomSignAsString);
+            }
+        }
+        else if (hasSpecialChars == "nie")
+        {
+            if (startsWithCapitalLetter == "tak")
+            {
 
-List<string> letters = userInput.Split(" ").ToList();
+            }
+            else if (startsWithCapitalLetter == "nie")
+            {
 
-var counterA = 0;
-var counterB = 0;
-var counterC = 0;
-var counterD = 0;
-var counterE = 0;
-var counterF = 0;
-var counterG = 0;
-var counterH = 0;
-var counterI = 0;
-var counterJ = 0;
-var counterK = 0;
-var counterL = 0;
-var counterM = 0;
-var counterN = 0;
-var counterO = 0;
-var counterP = 0;
-var counterQ = 0;
-var counterR = 0;
-var counterS = 0;
-var counterT = 0;
-var counterU = 0;
-var counterV = 0;
-var counterW = 0;
-var counterX = 0;
-var counterY = 0;
-var counterZ = 0;
+            }
+        }
+    }
+    else if (hasNumbers == "nie")
+    {
+        if (hasSpecialChars == "tak")
+        {
+            if (startsWithCapitalLetter == "tak")
+            {
 
+            }
+            else if (startsWithCapitalLetter == "nie")
+            {
 
+            }
+        }
+        else if (hasSpecialChars == "nie")
+        {
+            if (startsWithCapitalLetter == "tak")
+            {
 
-foreach (var letter in letters)
-{
-    if (letter == "a" || letter == "A")
-    {
-        counterA++;
-    }
-    else if (letter == "b" || letter == "B")
-    {
-        counterB++;
-    }
-    else if (letter == "c" || letter == "C")
-    {
-        counterC++;
-    }
-    else if (letter == "d" || letter == "D")
-    {
-        counterD++;
-    }
-    else if (letter == "e" || letter == "E")
-    {
-        counterE++;
-    }
-    else if (letter == "f" || letter == "F")
-    {
-        counterF++;
-    }
-    else if (letter == "g" || letter == "G")
-    {
-        counterG++;
-    }
-    else if (letter == "h" || letter == "H")
-    {
-        counterH++;
-    }
-    else if (letter == "i" || letter == "I")
-    {
-        counterI++;
-    }
-    else if (letter == "j" || letter == "J")
-    {
-        counterJ++;
-    }
-    else if (letter == "k" || letter == "K")
-    {
-        counterK++;
-    }
-    else if (letter == "l" || letter == "L")
-    {
-        counterL++;
-    }
-    else if (letter == "m" || letter == "M")
-    {
-        counterM++;
-    }
-    else if (letter == "n" || letter == "N")
-    {
-        counterN++;
-    }
-    else if (letter == "o" || letter == "O")
-    {
-        counterO++;
-    }
-    else if (letter == "p" || letter == "P")
-    {
-        counterP++;
-    }
-    else if (letter == "q" || letter == "Q")
-    {
-        counterQ++;
-    }
-    else if (letter == "r" || letter == "R")
-    {
-        counterR++;
-    }
-    else if (letter == "s" || letter == "S")
-    {
-        counterS++;
-    }
-    else if (letter == "t" || letter == "T")
-    {
-        counterT++;
-    }
-    else if (letter == "u" || letter == "U")
-    {
-        counterU++;
-    }
-    else if (letter == "v" || letter == "V")
-    {
-        counterV++;
-    }
-    else if (letter == "w" || letter == "W")
-    {
-        counterW++;
-    }
-    else if (letter == "x" || letter == "X")
-    {
-        counterX++;
-    }
-    else if (letter == "y" || letter == "Y")
-    {
-        counterY++;
-    }
-    else if (letter == "z" || letter == "Z")
-    {
-        counterZ++;
+            }
+            else if (startsWithCapitalLetter == "nie")
+            {
+
+            }
+        }
     }
 }
 
-
-Console.WriteLine("a:" + counterA);
-Console.WriteLine("b:" + counterB);
-Console.WriteLine("c:" + counterC);
-Console.WriteLine("d:" + counterD);
-Console.WriteLine("e:" + counterE);
-Console.WriteLine("f:" + counterF);
-Console.WriteLine("g:" + counterG);
-Console.WriteLine("h:" + counterH);
-Console.WriteLine("i:" + counterI);
-Console.WriteLine("j:" + counterJ);
-Console.WriteLine("k:" + counterK);
-Console.WriteLine("l:" + counterL);
-Console.WriteLine("m:" + counterM);
-Console.WriteLine("o:" + counterO);
-Console.WriteLine("p:" + counterP);
-Console.WriteLine("q:" + counterQ);
-Console.WriteLine("r:" + counterR);
-Console.WriteLine("s:" + counterS);
-Console.WriteLine("t:" + counterT);
-Console.WriteLine("u:" + counterU);
-Console.WriteLine("v:" + counterV);
-Console.WriteLine("w:" + counterW);
-Console.WriteLine("x:" + counterX);
-Console.WriteLine("y:" + counterY);
-Console.WriteLine("z:" + counterZ);
+var password = string.Concat(passwordSigns);
+Console.WriteLine("Twoje hasło: " + password);
