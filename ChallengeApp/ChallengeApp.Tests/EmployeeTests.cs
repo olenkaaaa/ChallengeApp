@@ -3,21 +3,19 @@
     public class EmployeeTests
     {
         [Test]
-        public void WhenEmployeeCollectsTwoScores_ShouldCorrectResult()
+
+        public void WhenUserGetGrades_CheckIfStatisticsAreCorrect()
         {
-            // arrange 
-            var employee = new Employee("Anna", "Nowak", 32);
-            employee.AddPoints(8);
-            employee.AddPoints(-2);
-            employee.AddPoints(6);
-            employee.AddPoints(-7);
-            employee.AddPoints(1);
+            var emp1 = new Employee("Dorota", "Kowalska");
+            emp1.AddGrade(3);
+            emp1.AddGrade(4);
+            emp1.AddGrade(5);
 
-            // act
-            var result = employee.Points;
+            var statistics = emp1.GetStatistics();
 
-            // assert
-            Assert.AreEqual(6, result);
+            Assert.AreEqual(5, statistics.Max);
+            Assert.AreEqual(3, statistics.Min);
+            Assert.AreEqual(4.00, statistics.Average);
         }
     }
 }

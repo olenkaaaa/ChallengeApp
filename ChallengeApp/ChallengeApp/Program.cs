@@ -1,89 +1,22 @@
-﻿// Twój program powinien generować silne, losowe hasła
-// na podstawie określonych przez użytkownika kryteriów,
-// takich jak długość hasła i rodzaje znaków, które powinny być użyte
-// (na przykład, małe litery, wielkie litery, cyfry, symbole).
+﻿using ChallengeApp;
 
-Console.WriteLine("Jestem generatorem haseł. Podaj mi kryteria, które ma spełniać Twoje hasło.");
-Console.Write("Długość hasła (wpisz cyfrę, określającą liczbę znaków) -> ");
-var passwordLengthAsString = Console.ReadLine();
-var passwordLength = int.Parse(passwordLengthAsString);
-Console.Write("Czy ma zawierać liczby? (Wpisz 'tak' lub 'nie') -> ");
-var hasNumbers = Console.ReadLine();
-Console.Write("Czy ma zawierać znaki specjalne? (Wpisz 'tak' lub 'nie') -> ");
-var hasSpecialChars = Console.ReadLine();
-Console.Write("Czy ma zaczynać się z wielkiej litery? (Wpisz 'tak' lub 'nie) -> ");
-var startsWithCapitalLetter = Console.ReadLine();
+var employee1 = new Employee("Marcin", "Twardowski");
+employee1.AddGrade(2);
+employee1.AddGrade(2);
+employee1.AddGrade(6);
+var statistics1 = employee1.GetStatistics();
+Console.WriteLine($"{employee1.Name} {employee1.Surname}");
+Console.WriteLine($"Average: {statistics1.Average:N2}");
+Console.WriteLine($"Min: {statistics1.Min}");
+Console.WriteLine($"Max: {statistics1.Max}");
+Console.WriteLine();
 
-var numbersLettersSpecialChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&*?"; // hasNumbers, hasSpecialChars
-var onlyCapitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-var numbersLetters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; // has Numbers, nie ma hasSpecialChars
-
-List<string> passwordSigns = new List<string>();
-
-//var onlySmallLetters = "abcdefghijklmnopqrstuvwxyz";
-//var onlyCapitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//var allLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbersAndLetters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-Random random = new Random();
-
-for (var i = 0; i < passwordLength; i++)
-{
-    if (hasNumbers == "tak")
-    {
-        if (hasSpecialChars == "tak")
-        {
-            if (startsWithCapitalLetter == "tak")
-            {
-                // uzupełnij
-            }
-            else if (startsWithCapitalLetter == "nie")
-            {
-                var index = random.Next(0, numbersLettersSpecialChars.Length);
-                var firstRandomSign = numbersLettersSpecialChars[index];
-                var firstRandomSignAsString = firstRandomSign.ToString();
-                passwordSigns.Add(firstRandomSignAsString);
-            }
-        }
-        else if (hasSpecialChars == "nie")
-        {
-            if (startsWithCapitalLetter == "tak")
-            {
-
-            }
-            else if (startsWithCapitalLetter == "nie")
-            {
-
-            }
-        }
-    }
-    else if (hasNumbers == "nie")
-    {
-        if (hasSpecialChars == "tak")
-        {
-            if (startsWithCapitalLetter == "tak")
-            {
-
-            }
-            else if (startsWithCapitalLetter == "nie")
-            {
-
-            }
-        }
-        else if (hasSpecialChars == "nie")
-        {
-            if (startsWithCapitalLetter == "tak")
-            {
-
-            }
-            else if (startsWithCapitalLetter == "nie")
-            {
-
-            }
-        }
-    }
-}
-
-var password = string.Concat(passwordSigns);
-Console.WriteLine("Twoje hasło: " + password);
+var employee2 = new Employee("Anna", "Nowak");
+employee2.AddGrade(7);
+employee2.AddGrade(4);
+employee2.AddGrade(1);
+var statistics2 = employee2.GetStatistics();
+Console.WriteLine($"{employee2.Name} {employee2.Surname}");
+Console.WriteLine($"Average: {statistics2.Average:N2}");
+Console.WriteLine($"Min: {statistics2.Min}");
+Console.WriteLine($"Max: {statistics2.Max}");
