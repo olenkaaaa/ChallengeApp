@@ -4,44 +4,58 @@
     {
         [Test]
 
-        public void WhenUserGetGrades_CheckIfMaxValueIsCorrect()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMax()
         {
-            var emp1 = new Employee("Dorota", "Kowalska");
-            emp1.AddGrade(3);
-            emp1.AddGrade(4);
-            emp1.AddGrade(5);
+            var employee = new Employee("Dorota", "Kowalska");
+            employee.AddGrade(3);
+            employee.AddGrade(4);
+            employee.AddGrade(5);
 
-            var statistics = emp1.GetStatistics();
+            var statistics = employee.GetStatistics();
 
             Assert.AreEqual(5, statistics.Max);
         }
 
         [Test]
 
-        public void WhenUserGetGrades_CheckIfMinValueIsCorrect()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMin()
         {
-            var emp2 = new Employee("Jan", "Musiał");
-            emp2.AddGrade(10);
-            emp2.AddGrade(2);
-            emp2.AddGrade(6);
+            var employee = new Employee("Jan", "Musiał");
+            employee.AddGrade(10);
+            employee.AddGrade(2);
+            employee.AddGrade(6);
 
-            var statistics = emp2.GetStatistics();
+            var statistics = employee.GetStatistics();
 
             Assert.AreEqual(2, statistics.Min);
         }
 
         [Test]
-        public void WhenUserGetGrades_CheckIfAverageValueIsCorrect()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectAverage()
         {
-            var emp3 = new Employee("Tomasz", "Zięba");
-            emp3.AddGrade(3);
-            emp3.AddGrade(7);
-            emp3.AddGrade(1);
-            emp3.AddGrade(9);
+            var employee = new Employee("Tomasz", "Zięba");
+            employee.AddGrade(3);
+            employee.AddGrade(7);
+            employee.AddGrade(2);
+            employee.AddGrade(4);
 
-            var statistics = emp3.GetStatistics();
+            var statistics = employee.GetStatistics();
 
-            Assert.AreEqual(5, statistics.Average);
+            Assert.AreEqual(Math.Round(4.00, 2), Math.Round(statistics.Average, 2));
+        }
+
+        [Test]
+
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectAverageLetter()
+        {
+            var employee = new Employee();
+            employee.AddGrade(50);
+            employee.AddGrade('B');
+            employee.AddGrade('a');
+            employee.AddGrade(60);
+            var statistics = employee.GetStatistics();
+
+            Assert.AreEqual('B', statistics.AverageLetter);
         }
     }
 }
