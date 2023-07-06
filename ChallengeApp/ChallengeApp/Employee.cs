@@ -1,15 +1,8 @@
-﻿using System.Diagnostics;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public class Employee
     {
         private List<float> grades = new List<float>();
-
-        public Employee()
-        {
-        }
-
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -28,24 +21,24 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Invalid grade value");
+                throw new Exception ("Invalid grade value");
             }
         }
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
-                this.grades.Add(result);
+                this.AddGrade(result);
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception ("String is not float");
             }
         }
         public void AddGrade(int grade)
         {
             float gradeAsFloat = (float)grade;
-            this.grades.Add(gradeAsFloat);
+            this.AddGrade(gradeAsFloat);
         }
         public void AddGrade(char grade)
         {
@@ -68,24 +61,23 @@ namespace ChallengeApp
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception ("Wrong Letter");
             }
         }
         public void AddGrade(double grade)
         {
             float gradeAsFloat = (float)grade;
-            this.grades.Add(gradeAsFloat);
+            this.AddGrade(gradeAsFloat);
         }
         public void AddGrade(long grade)
         {
             float gradeAsFloat = (float)grade;
-            this.grades.Add(gradeAsFloat);
+            this.AddGrade(gradeAsFloat);
         }
         public void AddGrade(decimal grade)
         {
             float gradeAsFloat = (float)grade;
-            this.grades.Add(gradeAsFloat);
+            this.AddGrade(gradeAsFloat);
         }
 
         public Statistics GetStatistics()
